@@ -24,8 +24,12 @@ const basePlugins = [
 const devPlugins = [];
 
 const prodPlugins = [
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
-    mangle: false,
+    mangle: {
+       keep_fnames: true
+    },
     compress: {
       warnings: false
     }
@@ -39,11 +43,13 @@ const plugins = basePlugins
 module.exports = {
   entry: {
     app: './src/index.ts',
-    shims: './shims/shims_for_IE',
-    vendor: [
+    shims: [
       'es5-shim',
       'es6-shim',
       'es6-promise',
+      './shims/shims_for_IE'
+    ],
+    vendor: [
       'angular2/bundles/angular2-polyfills',
       'angular2/bootstrap',
       'angular2/platform/browser',
@@ -71,9 +77,7 @@ module.exports = {
   plugins: plugins,
 
   devServer: {
-    historyApiFallback: {
-      index: '/'
-    },
+    historyApiFallback: { index: '/' },
     proxy: proxy(),
   },
 
@@ -91,10 +95,10 @@ module.exports = {
       loaders.woff2,
       loaders.ttf
     ],
-    noParse: [/zone\.js\/dist\/.+/, /angular2\/bundles\/.+/]
+    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ]
   },
 
-  postcss: function () {
+  postcss: function() {
     return [
       require('postcss-import')({
         addDependencyTo: webpack
