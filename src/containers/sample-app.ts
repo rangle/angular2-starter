@@ -7,60 +7,43 @@ import {
 
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
-import { LoginService } from '../services/login-service';
 import { RioAboutPage } from './about-page';
 import { RioCounterPage } from './counter-page';
 
 import {
-  RioButton,
   RioContainer,
   RioNavigator,
   RioNavigatorItem,
-  RioLogo,
-  RioLoginModal
+  RioLogo
 } from '../components';
 
 @Component({
   selector: 'rio-sample-app',
-  providers: [LoginService],
   directives: [
     ROUTER_DIRECTIVES, RioNavigator, RioNavigatorItem,
-    RioLoginModal, RioLogo, RioButton, RioContainer
+    RioLogo, RioContainer
   ],
   // Global styles imported in the app component.
   encapsulation: ViewEncapsulation.None,
   styles: [require('../styles/index.css')],
   template: `
     <div>
-      <rio-login-modal
-        (onSubmit)="login($event)"
-        [hasError]="hasError"
-        [isPending]="isLoading"
-        *ngIf="!isLoggedIn"></rio-login-modal>
       <rio-navigator>
         <rio-navigator-item [mr]=true>
           <rio-logo></rio-logo>
         </rio-navigator-item>
-        <rio-navigator-item *ngIf="isLoggedIn" [mr]=true>
+        <rio-navigator-item [mr]=true>
           <a [routerLink]="['Counter']"
             class="text-decoration-none">Counter</a>
         </rio-navigator-item>
-        <rio-navigator-item *ngIf="isLoggedIn">
+        <rio-navigator-item>
           <a [routerLink]="['About']"
             class="text-decoration-none">About Us</a>
         </rio-navigator-item>
         <div class="flex flex-auto"></div>
-        <rio-navigator-item *ngIf="isLoggedIn" [mr]=true>
-          {{user.firstName + ' ' + user.lastName }}
-        </rio-navigator-item>
-        <rio-navigator-item [hidden]="!isLoggedIn">
-          <rio-button class="bg-red white" (click)="logout()" >
-            Logout
-          </rio-button>
-        </rio-navigator-item>
       </rio-navigator>
       <rio-container>
-        <router-outlet *ngIf="isLoggedIn"></router-outlet>
+        <router-outlet></router-outlet>
       </rio-container>
     </div>
   `
@@ -79,33 +62,5 @@ import {
   }
 ])
 export class RioSampleApp {
-  private isLoggedIn: Boolean;
-  private isLoading: Boolean;
-  private hasError: boolean;
-  private user: any;
-
-  constructor(private loginService: LoginService) { }
-
-  logout(event) {
-    this.isLoggedIn = false;
-  }
-
-  login(event) {
-    this.isLoggedIn = false;
-    this.isLoading = true;
-    this.hasError = false;
-
-    this.loginService
-      .loginUser(event.username, event.password)
-      .then((response: any) => {
-        this.user = response.profile;
-        this.isLoading = false;
-        this.isLoggedIn = true;
-      })
-      .catch((error) => {
-        this.isLoading = false;
-        this.hasError = true;
-      });
-  }
 
 };

@@ -13,7 +13,7 @@ import { Component, Input } from 'angular2/core';
       'mx-auto': center
     }">
     <ng-content></ng-content>
-  <div>
+  </div>
   `
 })
 export class RioContainer {
