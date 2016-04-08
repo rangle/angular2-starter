@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/rangle/angular2-starter.svg?style=svg)](https://circleci.com/gh/rangle/angular2-starter)
+
 # Angular 2/TypeScript/Webpack Starter
 
 This is the initial version of our starter project using Angular 2.x, TypeScript and Webpack to tie it all together.
