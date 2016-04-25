@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const proxy = require('./server/webpack-dev-proxy');
 const styleLintPlugin = require('stylelint-webpack-plugin');
+const SplitByPathPlugin = require('webpack-split-by-path');
 
 const loaders = require('./webpack/loaders');
 
@@ -14,7 +15,9 @@ const basePlugins = [
     __PRODUCTION__: process.env.NODE_ENV === 'production',
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   }),
-  new webpack.optimize.CommonsChunkPlugin('vendor', '[name].[hash].bundle.js'),
+  new SplitByPathPlugin([
+        { name: 'vendor', path: [__dirname + '/node_modules/'] }
+    ]),
   new HtmlWebpackPlugin({
     template: './src/index.html',
     inject: 'body',
@@ -72,20 +75,8 @@ const postcssPlugins = postcssBasePlugins
 module.exports = {
   entry: {
     app: './src/index.ts',
-    shims: [
-      'es5-shim',
-      'es6-shim',
-      'es6-promise',
-      './shims/shims_for_IE'
-    ],
-    vendor: [
-      'angular2/bundles/angular2-polyfills',
-      'angular2/platform/browser',
-      'angular2/platform/common_dom',
-      'angular2/core',
-      'angular2/router',
-      'angular2/http'
-    ]
+    shims: './shims/shims_for_IE',
+    ng2polyfills: 'angular2/bundles/angular2-polyfills'
   },
 
   output: {
