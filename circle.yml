@@ -1,6 +1,12 @@
 machine:
   node:
     version: 4.3.1
+
+dependencies:
+  pre:
+    # Clean out node-modules to prevent issues with circle-ci's caching.
+    - rm -rf node_modules
+
 general:
   artifacts:
     - "./coverage/lcov-report/"
