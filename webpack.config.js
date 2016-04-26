@@ -16,8 +16,8 @@ const basePlugins = [
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
   }),
   new SplitByPathPlugin([
-        { name: 'vendor', path: [__dirname + '/node_modules/'] }
-    ]),
+    { name: 'vendor', path: [__dirname + '/node_modules/'] }
+  ]),
   new HtmlWebpackPlugin({
     template: './src/index.html',
     inject: 'body',
@@ -75,7 +75,12 @@ const postcssPlugins = postcssBasePlugins
 module.exports = {
   entry: {
     app: './src/index.ts',
-    shims: './shims/shims_for_IE',
+    shims: [
+      'es5-shim',
+      'es6-shim',
+      'es6-promise',
+      './shims/shims_for_IE'
+    ],
     ng2polyfills: 'angular2/bundles/angular2-polyfills'
   },
 
