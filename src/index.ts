@@ -1,3 +1,10 @@
+import 'es5-shim';
+import 'es6-shim';
+import 'es6-promise';
+import '../shims/shims_for_IE';
+
+import 'angular2/bundles/angular2-polyfills';
+
 import { enableProdMode, provide } from 'angular2/core';
 import { bootstrap } from 'angular2/platform/browser';
 import { ROUTER_PROVIDERS, APP_BASE_HREF } from 'angular2/router';

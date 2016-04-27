@@ -75,13 +75,6 @@ const postcssPlugins = postcssBasePlugins
 module.exports = {
   entry: {
     app: './src/index.ts',
-    shims: [
-      'es5-shim',
-      'es6-shim',
-      'es6-promise',
-      './shims/shims_for_IE'
-    ],
-    ng2polyfills: 'angular2/bundles/angular2-polyfills'
   },
 
   output: {
