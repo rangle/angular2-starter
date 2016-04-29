@@ -1,3 +1,5 @@
+'use strict';
+
 const config = require('./proxy-config');
 
 module.exports = function getWebpackConfig() {
