@@ -1,3 +1,5 @@
+'use strict';
+
 const httpProxy = require('http-proxy');
 const winston = require('winston');
 const proxyConfig = require('./proxy-config');

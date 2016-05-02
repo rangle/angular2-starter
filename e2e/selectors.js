@@ -8,14 +8,14 @@ module.exports = {
   LOGIN_FORM: {
     USERNAME_INPUT: '#qa-login-form-username',
     PASSWORD_INPUT: '#qa-login-form-password',
-    LOGIN_BUTTON: '#login-button'
+    LOGIN_BUTTON: '#login-button',
   },
 
   TASK_LIST: {
-    DISPLAY_NAME: '#qa-display-name'
+    DISPLAY_NAME: '#qa-display-name',
   },
 
   HEADER: {
-    LOGOUT_LINK: '#qa-logout-link'
-  }
-}
+    LOGOUT_LINK: '#qa-logout-link',
+  },
+};

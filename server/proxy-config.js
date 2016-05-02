@@ -1,3 +1,5 @@
+'use strict';
+
 // Proxying to remote HTTP APIs:
 //
 // Proxy settings in this file are used by both the production express server
