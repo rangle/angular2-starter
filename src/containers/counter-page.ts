@@ -1,4 +1,4 @@
-import { Component} from 'angular2/core';
+import { Component} from '@angular/core';
 import { RioCounter, RioContainer } from '../components';
 
 import { CounterService } from '../services/counter-service';

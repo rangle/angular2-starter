@@ -3,9 +3,9 @@ import {
   ViewEncapsulation,
   Inject,
   ApplicationRef
-} from 'angular2/core';
+} from '@angular/core';
 
-import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
 import { RioAboutPage } from './about-page';
 import { RioCounterPage } from './counter-page';
