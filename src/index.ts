@@ -2,6 +2,7 @@ import 'core-js/es6';
 import 'core-js/es7/reflect';
 import '../shims/shims_for_IE';
 require('zone.js/dist/zone');
+import 'ts-helpers';
 
 import { enableProdMode, provide } from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
