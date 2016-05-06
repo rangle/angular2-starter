@@ -18,9 +18,9 @@ require('html5-history-api');  // HTML5 History: IE9.
 if (!Object.hasOwnProperty('name')) {
   Object.defineProperty(Function.prototype, 'name', {
     get: function getName() {
-      var matches = this.toString()
+      const matches = this.toString()
         .match(/^\s*function\s*([a-zA-z\_\$]*)\s*\(/);
-      var name = matches && matches.length > 1 ? matches[1] : '';
+      const name = matches && matches.length > 1 ? matches[1] : '';
       // For better performance only parse once, and then cache the
       // result through a new accessor for repeated access.
       Object.defineProperty(this, 'name', { value: name });
