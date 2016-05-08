@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'rio-container',
+  selector: 'sg-rio-container',
   template: `
   <div
     class="clearFix px1"
@@ -16,7 +16,7 @@ import { Component, Input } from '@angular/core';
   </div>
   `
 })
-export class RioContainer {
+export class RioContainerComponent {
   @Input() size = 1;
   @Input() center = false;
 };

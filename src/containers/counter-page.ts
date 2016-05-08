@@ -1,23 +1,23 @@
 import { Component} from '@angular/core';
-import { RioCounter, RioContainer } from '../components';
+import { RioCounterComponent, RioContainerComponent } from '../components';
 
 import { CounterService } from '../services/counter-service';
 
 @Component({
-  selector: 'counter-page',
+  selector: 'sg-counter-page',
   providers: [CounterService],
-  directives: [RioCounter, RioContainer],
+  directives: [RioCounterComponent, RioContainerComponent],
   template: `
-    <rio-container>
+    <sg-rio-container>
       <h2 class="center caps">Counter</h2>
-      <rio-counter
+      <sg-rio-counter
         [counter]="counterPage.counter"
         [increment]="counterPage.increment"
         [decrement]="counterPage.decrement">
-      </rio-counter>
-    </rio-container>
+      </sg-rio-counter>
+    </sg-rio-container>
   `
 })
-export class RioCounterPage {
+export class RioCounterPageComponent {
   constructor(private counterPage: CounterService) { }
 }

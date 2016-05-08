@@ -1,14 +1,14 @@
-import { RioButton } from './button';
-import { RioContainer } from './container';
-import { RioCounter } from './counter';
-import { RioLogo } from './logo';
-import { RioNavigator, RioNavigatorItem } from './navigator';
+import { RioButtonComponent } from './button';
+import { RioContainerComponent } from './container';
+import { RioCounterComponent } from './counter';
+import { RioLogoComponent } from './logo';
+import { RioNavigatorComponent, RioNavigatorItemComponent } from './navigator';
 
 export {
-  RioButton,
-  RioContainer,
-  RioCounter,
-  RioLogo,
-  RioNavigator,
-  RioNavigatorItem
+  RioButtonComponent,
+  RioContainerComponent,
+  RioCounterComponent,
+  RioLogoComponent,
+  RioNavigatorComponent,
+  RioNavigatorItemComponent
 };
