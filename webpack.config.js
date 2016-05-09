@@ -85,7 +85,9 @@ module.exports = {
     chunkFilename: '[id].chunk.js',
   },
 
-  devtool: 'source-map',
+  devtool: process.env.NODE_ENV === 'production' ?
+    'source-map' :
+    'inline-source-map',
 
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
@@ -112,7 +114,7 @@ module.exports = {
       loaders.woff2,
       loaders.ttf,
     ],
-    noParse: [ /zone\.js\/dist\/.+/, /angular2\/bundles\/.+/ ],
+    noParse: [/zone\.js\/dist\/.+/, /angular2\/bundles\/.+/],
   },
 
   postcss: () => {

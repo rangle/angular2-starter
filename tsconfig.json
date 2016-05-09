@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "removeComments": false,
-    "sourceMap": true
+    "inlineSourceMap": true,
+    "noEmitHelpers": true
   },
   "exclude": [
     "node_modules",
