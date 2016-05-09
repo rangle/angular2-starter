@@ -1,6 +1,7 @@
 'use strict';
 
 const loaders = require('./webpack/loaders');
+const webpack = require('webpack');
 
 module.exports = (config) => {
   config.set({
@@ -40,6 +41,7 @@ module.exports = (config) => {
       },
       stats: { colors: true, reasons: true },
       debug: true,
+      plugins: [  new webpack.NoErrorsPlugin() ],
     },
 
     webpackServer: {
