@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { RioButton } from '../button';
+import { RioButtonComponent } from '../button';
 
 @Component({
   selector: 'rio-counter',
@@ -21,9 +21,9 @@ import { RioButton } from '../button';
       </rio-button>
     </div>
   `,
-  directives: [RioButton]
+  directives: [RioButtonComponent]
 })
-export class RioCounter {
+export class RioCounterComponent {
   @Input() counter: number;
   @Input() increment: () => void;
   @Input() decrement: () => void;

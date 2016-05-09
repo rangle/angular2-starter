@@ -7,21 +7,21 @@ import {
 
 import { RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 
-import { RioAboutPage } from './about-page';
-import { RioCounterPage } from './counter-page';
+import { RioAboutPageComponent } from './about-page';
+import { RioCounterPageComponent } from './counter-page';
 
 import {
-  RioContainer,
-  RioNavigator,
-  RioNavigatorItem,
-  RioLogo
+  RioContainerComponent,
+  RioNavigatorComponent,
+  RioNavigatorItemComponent,
+  RioLogoComponent
 } from '../components';
 
 @Component({
   selector: 'rio-sample-app',
   directives: [
-    ROUTER_DIRECTIVES, RioNavigator, RioNavigatorItem,
-    RioLogo, RioContainer
+    ROUTER_DIRECTIVES, RioNavigatorComponent, RioNavigatorItemComponent,
+    RioLogoComponent, RioContainerComponent
   ],
   // Global styles imported in the app component.
   encapsulation: ViewEncapsulation.None,
@@ -52,15 +52,15 @@ import {
   {
     path: '/counter',
     name: 'Counter',
-    component: RioCounterPage,
+    component: RioCounterPageComponent,
     useAsDefault: true
   },
   {
     path: '/about',
     name: 'About',
-    component: RioAboutPage
+    component: RioAboutPageComponent
   }
 ])
-export class RioSampleApp {
+export class RioSampleAppComponent {
 
 };

@@ -13,6 +13,6 @@ import { Component } from '@angular/core';
     </div>
   `
 })
-export class RioLogo {
+export class RioLogoComponent {
   private LogoImage = require('../../assets/rangleio-logo.svg');
 };

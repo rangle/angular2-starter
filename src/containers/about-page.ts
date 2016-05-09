@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { RioContainer } from '../components';
+import { RioContainerComponent } from '../components';
 
 @Component({
   selector: 'rio-about-page',
-  directives: [ RioContainer ],
+  directives: [ RioContainerComponent ],
   template: `
     <rio-container>
       <h2 class="caps">About Us</h2>
@@ -14,4 +14,4 @@ import { RioContainer } from '../components';
     </rio-container>
   `
 })
-export class RioAboutPage {}
+export class RioAboutPageComponent {}

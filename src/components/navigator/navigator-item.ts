@@ -13,7 +13,7 @@ import { Input, Component } from '@angular/core';
     </div>
   `
 })
-export class RioNavigatorItem {
+export class RioNavigatorItemComponent {
   @Input() mr = false;
   @Input() ml = false;
 };
