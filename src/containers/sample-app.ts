@@ -18,7 +18,7 @@ import {
 } from '../components';
 
 @Component({
-  selector: 'sg-rio-sample-app',
+  selector: 'rio-sample-app',
   directives: [
     ROUTER_DIRECTIVES, RioNavigatorComponent, RioNavigatorItemComponent,
     RioLogoComponent, RioContainerComponent
@@ -28,23 +28,23 @@ import {
   styles: [require('../styles/index.css')],
   template: `
     <div>
-      <sg-rio-navigator>
-        <sg-rio-navigator-item [mr]=true>
-          <sg-rio-logo></sg-rio-logo>
-        </sg-rio-navigator-item>
-        <sg-rio-navigator-item [mr]=true>
+      <rio-navigator>
+        <rio-navigator-item [mr]=true>
+          <rio-logo></rio-logo>
+        </rio-navigator-item>
+        <rio-navigator-item [mr]=true>
           <a [routerLink]="['Counter']"
             class="text-decoration-none">Counter</a>
-        </sg-rio-navigator-item>
-        <sg-rio-navigator-item>
+        </rio-navigator-item>
+        <rio-navigator-item>
           <a [routerLink]="['About']"
             class="text-decoration-none">About Us</a>
-        </sg-rio-navigator-item>
+        </rio-navigator-item>
         <div class="flex flex-auto"></div>
-      </sg-rio-navigator>
-      <sg-rio-container>
+      </rio-navigator>
+      <rio-container>
         <router-outlet></router-outlet>
-      </sg-rio-container>
+      </rio-container>
     </div>
   `
 })

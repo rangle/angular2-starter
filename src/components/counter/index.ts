@@ -2,23 +2,23 @@ import { Component, Input } from '@angular/core';
 import { RioButtonComponent } from '../button';
 
 @Component({
-  selector: 'sg-rio-counter',
+  selector: 'rio-counter',
   template: `
     <div class="flex">
-      <sg-rio-button
+      <rio-button
         className="bg-black col-2"
         (onClick)="decrement()">
         -
-      </sg-rio-button>
+      </rio-button>
 
       <div class="flex-auto flex-center center h1">
         {{ counter }}
       </div>
 
-      <sg-rio-button className="col-2"
+      <rio-button className="col-2"
         (onClick)="increment()">
         +
-      </sg-rio-button>
+      </rio-button>
     </div>
   `,
   directives: [RioButtonComponent]

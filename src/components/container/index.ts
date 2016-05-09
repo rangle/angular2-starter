@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'sg-rio-container',
+  selector: 'rio-container',
   template: `
   <div
     class="clearFix px1"

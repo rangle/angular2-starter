@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'sg-rio-button',
+  selector: 'rio-button',
   template: `
     <button
       (click)="handleClick($event)"

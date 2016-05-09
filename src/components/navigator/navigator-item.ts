@@ -1,7 +1,7 @@
 import { Input, Component } from '@angular/core';
 
 @Component({
-  selector: 'sg-rio-navigator-item',
+  selector: 'rio-navigator-item',
   template: `
     <div
       class="truncate"
