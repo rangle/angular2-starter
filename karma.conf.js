@@ -32,6 +32,8 @@ module.exports = (config) => {
       module: {
         loaders: [
           loaders.tsTest,
+          loaders.svg,
+          loaders.css,
         ],
         postLoaders: [
           loaders.istanbulInstrumenter,
@@ -39,7 +41,7 @@ module.exports = (config) => {
       },
       stats: { colors: true, reasons: true },
       debug: true,
-      plugins: [  new webpack.NoErrorsPlugin() ],
+      plugins: [new webpack.NoErrorsPlugin()],
     },
 
     webpackServer: {
