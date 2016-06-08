@@ -40,6 +40,7 @@
     "express": "^4.13.4",
     "helmet": "^2.0.0",
     "http-proxy": "^1.13.2",
+    "ts-helpers": "^1.1.1",
     "winston": "^2.1.1"
   },
   "devDependencies": {
@@ -52,6 +53,8 @@
     "@angular/router-deprecated": "2.0.0-rc.1",
     "autoprefixer": "^6.3.3",
     "autoprefixer-core": "^6.0.1",
+    "awesome-typescript-loader": "^0.19.0",
+    "babel-core": "^6.9.1",
     "basscss": "^8.0.1",
     "basscss-addons": "^1.0.0-beta4",
     "basscss-align": "^1.0.2",
@@ -86,8 +89,8 @@
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^1.0.1",
-    "karma-jasmine": "^0.3.8",
     "karma-coverage": "^1.0.0",
+    "karma-jasmine": "^0.3.8",
     "karma-source-map-support": "^1.1.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
