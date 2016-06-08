@@ -23,7 +23,7 @@ import {
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
-let testContext = (<{ context?: Function }>require).context(
+let testContext = (require as any).context(
   './',
   true,
   /\.test\.ts/);
