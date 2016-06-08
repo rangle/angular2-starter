@@ -86,9 +86,7 @@ module.exports = {
     chunkFilename: '[id].chunk.js',
   },
 
-  devtool: process.env.NODE_ENV === 'production' ?
-    'source-map' :
-    'inline-source-map',
+  devtool: 'inline-source-map',
 
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
