@@ -91,4 +91,3 @@ describe('Component: Alert', () => {
     }));
   });
 });
-
