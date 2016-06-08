@@ -1,3 +1,5 @@
+'use strict';
+
 import 'core-js/es6';
 import 'core-js/es7/reflect';
 import 'reflect-metadata';
@@ -24,7 +26,8 @@ setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
 const looseRequire: any = require;
-let testContext = looseRequire.context(
+
+const testContext = looseRequire.context(
   './',
   true,
   /\.test\.ts/);

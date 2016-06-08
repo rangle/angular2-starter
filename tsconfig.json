@@ -14,7 +14,8 @@
   },
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
-    "useCache": true
+    "useCache": true,
+    "emitRequireType": false
   },
   "exclude": [
     "node_modules",
