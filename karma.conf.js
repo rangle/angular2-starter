@@ -1,7 +1,7 @@
 'use strict';
 
 const loaders = require('./webpack/loaders');
-const webpack = require('webpack');
+const postcssInit = require('./webpack/postcss');
 
 module.exports = (config) => {
   config.set({
@@ -41,7 +41,8 @@ module.exports = (config) => {
       },
       stats: { colors: true, reasons: true },
       debug: true,
-      plugins: [new webpack.NoErrorsPlugin()],
+      plugins: [],
+      postcss: postcssInit,
     },
 
     webpackServer: {
