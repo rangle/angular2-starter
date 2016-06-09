@@ -22,6 +22,7 @@ module.exports = {
   devtool: process.env.NODE_ENV === 'production' ?
     'source-map' :
     'inline-source-map',
+
   postcss: postcssInit,
 
   resolve: {

@@ -15,7 +15,6 @@ module.exports = (config) => {
     preprocessors: {
       './src/**/*.ts': [
         'webpack',
-        'sourcemap',
       ],
       './src/**/!(*.test|tests.*).ts': [
         'coverage',
@@ -50,6 +49,7 @@ module.exports = (config) => {
     },
 
     reporters: ['spec', 'coverage'],
+
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {
       reporters: [
