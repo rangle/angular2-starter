@@ -1,77 +1,10 @@
 'use strict';
 
 const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const proxy = require('./server/webpack-dev-proxy');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SplitByPathPlugin = require('webpack-split-by-path');
-
 const loaders = require('./webpack/loaders');
-
-const basePlugins = [
-  new webpack.DefinePlugin({
-    __DEV__: process.env.NODE_ENV !== 'production',
-    __PRODUCTION__: process.env.NODE_ENV === 'production',
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-  }),
-  new SplitByPathPlugin([
-    { name: 'vendor', path: [__dirname + '/node_modules/'] },
-  ]),
-  new HtmlWebpackPlugin({
-    template: './src/index.html',
-    inject: 'body',
-    minify: false,
-  }),
-];
-
-const devPlugins = [
-  new webpack.NoErrorsPlugin(),
-  new StyleLintPlugin({
-    configFile: './.stylelintrc',
-    files: ['src/**/*.css'],
-    failOnError: false,
-  }),
-];
-
-const prodPlugins = [
-  new webpack.optimize.OccurenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.UglifyJsPlugin({
-    mangle: {
-      keep_fnames: true,
-    },
-    compress: {
-      warnings: false,
-    },
-  }),
-  new webpack.NoErrorsPlugin(),
-];
-
-const plugins = basePlugins
-  .concat(process.env.NODE_ENV === 'production' ? prodPlugins : [])
-  .concat(process.env.NODE_ENV === 'development' ? devPlugins : []);
-
-const postcssBasePlugins = [
-  require('postcss-import')({
-    addDependencyTo: webpack,
-  }),
-  require('postcss-cssnext')({
-    browsers: ['ie >= 8', 'last 2 versions'],
-  }),
-];
-const postcssDevPlugins = [];
-const postcssProdPlugins = [
-  require('cssnano')({
-    safe: true,
-    sourcemap: true,
-    autoprefixer: false,
-  }),
-];
-
-const postcssPlugins = postcssBasePlugins
-  .concat(process.env.NODE_ENV === 'production' ? postcssProdPlugins : [])
-  .concat(process.env.NODE_ENV === 'development' ? postcssDevPlugins : []);
+const plugins = require('./webpack/plugins');
+const postcssInit = require('./webpack/postcss');
 
 module.exports = {
   entry: {
@@ -86,7 +19,10 @@ module.exports = {
     chunkFilename: '[id].chunk.js',
   },
 
-  devtool: 'inline-source-map',
+  devtool: process.env.NODE_ENV === 'production' ?
+    'source-map' :
+    'inline-source-map',
+  postcss: postcssInit,
 
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
@@ -114,9 +50,5 @@ module.exports = {
       loaders.ttf,
     ],
     noParse: [/zone\.js\/dist\/.+/, /angular2\/bundles\/.+/],
-  },
-
-  postcss: () => {
-    return postcssPlugins;
   },
 };
