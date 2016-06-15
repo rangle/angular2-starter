@@ -7,17 +7,36 @@ module.exports = (config) => {
   config.set({
     frameworks: [
       'jasmine',
-      'source-map-support',
     ],
 
-    files: ['./src/tests.entry.ts'],
+    plugins: [
+      'karma-jasmine',
+      'karma-sourcemap-writer',
+      'karma-sourcemap-loader',
+      'karma-webpack',
+      'karma-coverage',
+      'karma-spec-reporter',
+      'karma-chrome-launcher',
+    ],
+
+    files: [
+      './src/tests.entry.ts',
+      {
+        pattern: '**/*.map',
+        served: true,
+        included: false,
+        watched: true,
+      },
+    ],
 
     preprocessors: {
       './src/**/*.ts': [
         'webpack',
+        'sourcemap',
       ],
       './src/**/!(*.test|tests.*).ts': [
         'coverage',
+        'sourcemap',
       ],
     },
 
@@ -29,11 +48,7 @@ module.exports = (config) => {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
       },
       module: {
-        loaders: [
-          loaders.tsTest,
-          loaders.svg,
-          loaders.css,
-        ],
+        loaders: combinedLoaders(),
         postLoaders: [
           loaders.istanbulInstrumenter,
         ],
@@ -54,7 +69,6 @@ module.exports = (config) => {
     coverageReporter: {
       reporters: [
         { type: 'json' },
-        { type: 'html' },
       ],
       dir: './coverage/',
       subdir: (browser) => {
@@ -71,3 +85,20 @@ module.exports = (config) => {
     singleRun: true,
   });
 };
+
+function combinedLoaders() {
+  return Object.keys(loaders).reduce(function reduce(aggregate, k) {
+    switch (k) {
+    case 'tslint': // intolerably slow
+      return aggregate;
+    case 'ts':
+    case 'tsTest':
+      return aggregate.concat([ // force inline source maps
+        Object.assign(loaders[k],
+          { query: { babelOptions: { sourceMaps: 'inline' } } })]);
+    default:
+      return aggregate.concat([loaders[k]]);
+    }
+  },
+  []);
+}
