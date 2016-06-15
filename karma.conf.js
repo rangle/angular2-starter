@@ -43,7 +43,7 @@ module.exports = (config) => {
     webpack: {
       entry: './src/tests.entry.ts',
       devtool: 'inline-source-map',
-      verbose: true,
+      verbose: false,
       resolve: {
         extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
       },
