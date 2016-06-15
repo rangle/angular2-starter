@@ -54,7 +54,7 @@ module.exports = (config) => {
         ],
       },
       stats: { colors: true, reasons: true },
-      debug: true,
+      debug: false,
       plugins: [],
       postcss: postcssInit,
     },
