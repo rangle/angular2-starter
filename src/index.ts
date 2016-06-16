@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import 'core-js/es6';
 import 'core-js/es7/reflect';
 import 'ts-helpers';
@@ -10,7 +11,8 @@ import { ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { APP_BASE_HREF } from '@angular/common/index';
 import { RioSampleAppComponent } from './containers/sample-app';
 
-declare let __PRODUCTION__: any;
+declare const __PRODUCTION__: boolean;
+declare const __TEST__: boolean;
 
 if (__PRODUCTION__) {
   enableProdMode();
@@ -18,7 +20,9 @@ if (__PRODUCTION__) {
   require('zone.js/dist/long-stack-trace-zone');
 }
 
-bootstrap(RioSampleAppComponent, [
-  ROUTER_PROVIDERS,
-  provide(APP_BASE_HREF, { useValue: '/' })
-]);
+if (!__TEST__) {
+  bootstrap(RioSampleAppComponent, [
+    ROUTER_PROVIDERS,
+    provide(APP_BASE_HREF, { useValue: '/' })
+  ]);
+}
