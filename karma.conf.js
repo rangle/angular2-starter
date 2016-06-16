@@ -7,6 +7,8 @@ const postcssInit = require('./webpack/postcss');
 const plugins = require('./webpack/plugins');
 
 module.exports = (config) => {
+  const coverage = config.singleRun ? ['coverage'] : [];
+
   config.set({
     frameworks: [
       'jasmine',
@@ -33,14 +35,13 @@ module.exports = (config) => {
     ],
 
     preprocessors: {
-      './src/**/*.ts': [
+      './src/tests.entry.ts': [
         'webpack',
         'sourcemap',
       ],
-      './src/**/!(*.test|tests.*).ts': [
-        'coverage',
+      './src/**/!(*.test|tests.*).(ts|js)': [
         'sourcemap',
-      ],
+      ].concat(coverage),
     },
 
     webpack: {
@@ -52,9 +53,9 @@ module.exports = (config) => {
       },
       module: {
         loaders: combinedLoaders(),
-        postLoaders: [
-          loaders.istanbulInstrumenter,
-        ],
+        postLoaders: config.singleRun
+          ? [ loaders.istanbulInstrumenter ]
+          : [ ],
       },
       stats: { colors: true, reasons: true },
       debug: false,
@@ -66,7 +67,7 @@ module.exports = (config) => {
       noInfo: true, // prevent console spamming when running in Karma!
     },
 
-    reporters: ['spec', 'coverage'],
+    reporters: ['spec'].concat(coverage),
 
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {
@@ -85,20 +86,19 @@ module.exports = (config) => {
     autoWatch: true,
     browsers: ['Chrome'], // Alternatively: 'PhantomJS'
     captureTimeout: 6000,
-    singleRun: true,
   });
 };
 
 function combinedLoaders() {
   return Object.keys(loaders).reduce(function reduce(aggregate, k) {
     switch (k) {
-    case 'tslint': // intolerably slow
+    case 'istanbulInstrumenter':
+    case 'tslint':
       return aggregate;
     case 'ts':
-    case 'tsTest':
       return aggregate.concat([ // force inline source maps
         Object.assign(loaders[k],
-          { query: { babelOptions: { sourceMaps: 'inline' } } })]);
+          { query: { babelOptions: { sourceMaps: 'both' } } })]);
     default:
       return aggregate.concat([loaders[k]]);
     }

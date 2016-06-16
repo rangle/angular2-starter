@@ -20,6 +20,10 @@ const basePlugins = [
     inject: 'body',
     minify: false,
   }),
+  new webpack.SourceMapDevToolPlugin({
+    filename: null,
+    test: /\.(ts|js)$/i, // process .js and .ts files only
+  }),
   new webpack.NoErrorsPlugin(),
 ];
 
