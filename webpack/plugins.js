@@ -6,10 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const SplitByPathPlugin = require('webpack-split-by-path');
 
 const sourceMap = process.env.TEST
-  ? [new webpack.SourceMapDevToolPlugin({
-      filename: null,
-      test: /\.ts$/,
-    })]
+  ? [new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.ts$/ })]
   : [];
 
 const basePlugins = [
