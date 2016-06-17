@@ -22,7 +22,7 @@ const basePlugins = [
   }),
   new webpack.SourceMapDevToolPlugin({
     filename: null,
-    test: /\.(ts|js)$/i, // process .js and .ts files only
+    test: /\.ts$/,
   }),
   new webpack.NoErrorsPlugin(),
 ];
