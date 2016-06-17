@@ -13,7 +13,7 @@ exports.ts = {
 };
 
 exports.istanbulInstrumenter = {
-  test: /\.ts$/,
+  test: /^(.(?!\.test))*\.ts$/,
   loader: 'istanbul-instrumenter-loader',
 };
 
