@@ -15,7 +15,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "clean": "rimraf dist/",
     "cover": "istanbul report --include=**/chrome/coverage-final.json text text-summary html",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server -d --host 0.0.0.0 --inline --hot --progress --no-info",
     "lint": "npm run lint-ts && npm run lint-js && npm run lint-css",
     "lint-ts": "tslint './src/**/*.ts'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
