@@ -15,6 +15,9 @@ exports.ts = {
 exports.istanbulInstrumenter = {
   test: /^(.(?!\.test))*\.ts$/,
   loader: 'istanbul-instrumenter-loader',
+  query: {
+    embedSource: true,
+  },
 };
 
 exports.html = {
