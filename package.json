@@ -85,7 +85,7 @@
     "html5-history-api": "^4.2.7",
     "immutable": "^3.7.6",
     "inline-source-map": "^0.6.2",
-    "istanbul": "^0.4.4",
+    "istanbul": "^1.0.0-alpha.2",
     "istanbul-instrumenter-loader": "^0.2.0",
     "jasmine-core": "^2.4.1",
     "karma": "^1.1.0",
