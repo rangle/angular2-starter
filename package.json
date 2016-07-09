@@ -71,7 +71,7 @@
     "basscss-type-scale": "^1.0.5",
     "basscss-typography": "^3.0.3",
     "classlist-polyfill": "^1.0.2",
-    "codelyzer": "0.0.24",
+    "codelyzer": "0.0.25",
     "console-polyfill": "^0.2.2",
     "copy-webpack-plugin": "^3.0.1",
     "core-js": "^2.3.0",
