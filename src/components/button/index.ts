@@ -15,9 +15,9 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class RioButtonComponent {
   @Input() className: string;
   @Input() type: string;
-  @Output() onClick: EventEmitter<Event> = new EventEmitter();
+  @Output() onClick: EventEmitter<any> = new EventEmitter<any>();
 
-  handleClick(event) {
+  handleClick(event: any) {
     this.onClick.emit(event);
   }
 };

@@ -1,0 +1,19 @@
+<div>
+  <rio-navigator>
+    <rio-navigator-item [mr]=true>
+      <rio-logo></rio-logo>
+    </rio-navigator-item>
+    <rio-navigator-item [mr]=true>
+      <a [routerLink]="['/']"
+        class="text-decoration-none">Counter</a>
+    </rio-navigator-item>
+    <rio-navigator-item>
+      <a [routerLink]="['/about']"
+        class="text-decoration-none">About Us</a>
+    </rio-navigator-item>
+    <div class="flex flex-auto"></div>
+  </rio-navigator>
+  <rio-container>
+    <router-outlet></router-outlet>
+  </rio-container>
+</div>
