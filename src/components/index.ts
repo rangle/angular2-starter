@@ -1,2 +1,1 @@
-// Export components here!
-// export { ExampleComponent } from './example';
+export { RioContainerComponent } from './container';
