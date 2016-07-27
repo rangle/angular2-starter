@@ -1,8 +1,6 @@
 import {
   Component,
   ViewEncapsulation,
-  Inject,
-  ApplicationRef
 } from '@angular/core';
 
 import { ROUTER_DIRECTIVES } from '@angular/router';
