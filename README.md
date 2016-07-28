@@ -80,7 +80,7 @@ Be sure to tag your new issue with the 'ng2' label so we can see which starter y
 
 ## Example Application
 
-TBC
+An example app using this starter can be found [here](https://github.com/rangle/angular2-starter-example).
 
 ## License
 

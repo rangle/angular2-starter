@@ -7,9 +7,9 @@ import 'zone.js/dist/zone';
 
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { RioSampleAppComponent } from './containers/sample-app';
+import { RioAppComponent } from './containers/app';
 import { provideRouter } from '@angular/router';
-import { SAMPLE_APP_ROUTES } from './routes/sample-app';
+import { SAMPLE_APP_ROUTES } from './routes/app';
 
 declare const __PRODUCTION__: boolean;
 declare const __TEST__: boolean;
@@ -21,7 +21,7 @@ if (__PRODUCTION__) {
 }
 
 if (!__TEST__) {
-  bootstrap(RioSampleAppComponent, [
+  bootstrap(RioAppComponent, [
     provideRouter(SAMPLE_APP_ROUTES),
   ]);
 }
