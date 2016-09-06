@@ -41,7 +41,6 @@ const prodPlugins = [
   new SplitByPathPlugin([
     { name: 'vendor', path: [path.join(__dirname, '..', 'node_modules/')] },
   ]),
-  new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     mangle: {
       keep_fnames: true,
