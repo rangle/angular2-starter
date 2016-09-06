@@ -7,7 +7,7 @@ import 'zone.js/dist/zone';
 
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
-import { RioAppComponent } from './containers/app';
+import { RioAppComponent } from './app/app';
 import { provideRouter } from '@angular/router';
 import { SAMPLE_APP_ROUTES } from './routes/app';
 

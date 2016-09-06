@@ -1,8 +1,8 @@
 import { RouterConfig } from '@angular/router';
 
-import { RioRootPageComponent } from '../containers/root-page';
+import { RioHelloPageComponent } from '../pages';
 
 export const SAMPLE_APP_ROUTES: RouterConfig = [{
   path: '',
-  component: RioRootPageComponent
+  component: RioHelloPageComponent
 }];
