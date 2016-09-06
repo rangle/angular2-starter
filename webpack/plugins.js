@@ -41,7 +41,6 @@ const prodPlugins = [
   new SplitByPathPlugin([
     { name: 'vendor', path: [path.join(__dirname, '..', 'node_modules/')] },
   ]),
-  new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.optimize.DedupePlugin(),
   new webpack.optimize.UglifyJsPlugin({
     mangle: {
@@ -56,4 +55,3 @@ const prodPlugins = [
 module.exports = basePlugins
   .concat(process.env.NODE_ENV === 'production' ? prodPlugins : [])
   .concat(process.env.NODE_ENV === 'development' ? devPlugins : []);
-

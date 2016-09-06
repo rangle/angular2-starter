@@ -2,6 +2,6 @@
   "globalDependencies": {
     "assertion-error": "registry:dt/assertion-error#1.0.0+20160316155526",
     "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
-    "node": "registry:dt/node#6.0.0+20160514165920"
+    "node": "registry:env/node#6.0.0+20160902022231"
   }
 }
