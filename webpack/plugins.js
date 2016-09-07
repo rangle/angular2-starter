@@ -3,9 +3,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const SplitByPathPlugin = require('webpack-split-by-path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
 
 const sourceMap = process.env.TEST
   ? [new webpack.SourceMapDevToolPlugin({ filename: null, test: /\.ts$/ })]
@@ -38,9 +36,11 @@ const devPlugins = [
 ];
 
 const prodPlugins = [
-  new SplitByPathPlugin([
-    { name: 'vendor', path: [path.join(__dirname, '..', 'node_modules/')] },
-  ]),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: [
+      'vendor',
+    ],
+  }),
   new webpack.optimize.UglifyJsPlugin({
     mangle: {
       keep_fnames: true,

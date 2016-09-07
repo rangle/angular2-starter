@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const proxy = require('./server/webpack-dev-proxy');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 const postcssInit = require('./webpack/postcss');
@@ -9,6 +8,20 @@ const postcssInit = require('./webpack/postcss');
 module.exports = {
   entry: {
     app: './src/index.ts',
+    // and vendor files separate
+    vendor: [
+      '@angular/core',
+      '@angular/compiler',
+      '@angular/common',
+      '@angular/http',
+      '@angular/platform-browser',
+      '@angular/platform-browser-dynamic',
+      '@angular/router',
+      'core-js',
+      'rxjs',
+      'immutable',
+      'zone.js',
+    ],
   },
 
   output: {
@@ -33,7 +46,7 @@ module.exports = {
 
   devServer: {
     historyApiFallback: { index: '/' },
-    proxy: proxy(),
+    proxy: {},
   },
 
   module: {
