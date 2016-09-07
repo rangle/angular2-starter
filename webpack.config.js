@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const proxy = require('./server/webpack-dev-proxy');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 const postcssInit = require('./webpack/postcss');
@@ -33,7 +32,7 @@ module.exports = {
 
   devServer: {
     historyApiFallback: { index: '/' },
-    proxy: proxy(),
+    proxy: {},
   },
 
   module: {
