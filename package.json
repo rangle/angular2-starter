@@ -21,7 +21,7 @@
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "lint-css": "stylelint './src/**/*.css'",
     "postinstall": "npm run build",
-    "start": "cross-env NODE_ENV=production node server/node-server.js",
+    "start": "cross-env NODE_ENV=production http-server ./dist",
     "pretest": "rimraf coverage/ & npm run lint",
     "test": "karma start --singleRun true",
     "posttest": "npm run cover",
@@ -36,7 +36,8 @@
   },
   "dependencies": {
     "@types/jasmine": "^2.2.33",
-    "@types/node": "^6.0.38"
+    "@types/node": "^6.0.38",
+    "http-server": "^0.9.0"
   },
   "devDependencies": {
     "@angular/common": "2.0.0-rc.6",
