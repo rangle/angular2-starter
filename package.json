@@ -87,7 +87,7 @@
     "postcss-cssnext": "^2.8.0",
     "postcss-import": "8.0.2",
     "postcss-loader": "^0.13.0",
-    "raf": "^3.2.0",
+    "raf": "^3.3.0",
     "ramda": "^0.22.1",
     "raw-loader": "^0.5.1",
     "reflect-metadata": "0.1.8",
