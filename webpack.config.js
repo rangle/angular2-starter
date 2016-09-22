@@ -3,7 +3,6 @@
 const path = require('path');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
-const postcssInit = require('./webpack/postcss');
 
 module.exports = {
   entry: {
@@ -20,7 +19,6 @@ module.exports = {
       'core-js',
       'rxjs',
       'immutable',
-      'zone.js',
     ],
   },
 
@@ -36,10 +34,8 @@ module.exports = {
     'source-map' :
     'inline-source-map',
 
-  postcss: postcssInit,
-
   resolve: {
-    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+    extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
   },
 
   plugins: plugins,
@@ -50,10 +46,9 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
+    rules: [
+      loaders.angular,
       loaders.tslint,
-    ],
-    loaders: [
       loaders.ts,
       loaders.html,
       loaders.css,

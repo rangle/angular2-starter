@@ -40,12 +40,12 @@
     "http-server": "^0.9.0"
   },
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.6",
-    "@angular/compiler": "2.0.0-rc.6",
-    "@angular/core": "2.0.0-rc.6",
-    "@angular/http": "2.0.0-rc.6",
-    "@angular/platform-browser": "2.0.0-rc.6",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.6",
+    "@angular/common": "2.0.0",
+    "@angular/compiler": "2.0.0",
+    "@angular/core": "2.0.0",
+    "@angular/http": "2.0.0",
+    "@angular/platform-browser": "2.0.0",
+    "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/router": "^3.0.0-rc.2",
     "autoprefixer": "^6.3.3",
     "awesome-typescript-loader": "^2.2.3",
@@ -92,7 +92,7 @@
     "raw-loader": "^0.5.1",
     "reflect-metadata": "0.1.8",
     "rimraf": "^2.5.4",
-    "rxjs": "5.0.0-beta.11",
+    "rxjs": "5.0.0-beta.12",
     "selenium-standalone": "^5.6.2",
     "style-loader": "^0.13.0",
     "stylelint": "^7.2.0",
@@ -102,10 +102,10 @@
     "tslint": "^3.12.1",
     "tslint-loader": "^2.1.0",
     "typescript": "^2.0.0",
-    "webpack": "^2.1.0-beta.21",
-    "webpack-dev-server": "^2.1.0-beta.0",
-    "webpack-hot-middleware": "^2.12.2",
-    "webpack-split-by-path": "^0.1.0-beta.1",
+    "webpack": "2.1.0-beta.25",
+    "webpack-dev-server": "2.1.0-beta.5",
+    "webpack-hot-middleware": "2.12.2",
+    "webpack-split-by-path": "0.1.0-beta.1",
     "zone.js": "^0.6.17"
   }
 }

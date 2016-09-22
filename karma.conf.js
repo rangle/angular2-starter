@@ -3,7 +3,6 @@
 process.env.TEST = true;
 
 const loaders = require('./webpack/loaders');
-const postcssInit = require('./webpack/postcss');
 const plugins = require('./webpack/plugins');
 
 module.exports = (config) => {
@@ -48,20 +47,18 @@ module.exports = (config) => {
     webpack: {
       entry: './src/tests.entry.ts',
       devtool: 'inline-source-map',
-      verbose: false,
       resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js'],
+        extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
       },
       module: {
-        loaders: combinedLoaders(),
-        postLoaders: config.singleRun
-          ? [ loaders.istanbulInstrumenter ]
-          : [ ],
+        rules:
+          combinedLoaders().concat(
+            config.singleRun
+              ? [ loaders.istanbulInstrumenter ]
+              : [ ]),
       },
       stats: { colors: true, reasons: true },
-      debug: false,
       plugins,
-      postcss: postcssInit,
     },
 
     webpackServer: {
@@ -72,13 +69,6 @@ module.exports = (config) => {
       .concat(coverage)
       .concat(coverage.length > 0 ? ['karma-remap-istanbul'] : []),
 
-    remapIstanbulReporter: {
-      src: 'coverage/chrome/coverage-final.json',
-      reports: {
-        html: 'coverage',
-      },
-    },
-
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {
       reporters: [
@@ -88,6 +78,14 @@ module.exports = (config) => {
       subdir: (browser) => {
         return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
       },
+    },
+
+    remapIstanbulReporter: {
+      src: './coverage/chrome/coverage-final.json',
+      reports: {
+        html: 'coverage',
+      },
+      timeoutNotCreated: 5000,
     },
 
     port: 9999,
