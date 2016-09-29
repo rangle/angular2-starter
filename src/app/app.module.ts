@@ -1,15 +1,9 @@
-import {
-  NgModule
-} from '@angular/core';
-
-import {
-  routing,
-  appRoutingProviders
-} from '../routes/app.routes';
-
-import {RioHelloPageComponent} from '../pages';
-import {RioAppComponent} from './app.component';
+import { NgModule } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+
+import { appRoutingProviders, routing } from '../routes/app.routes';
+import { RioAppComponent } from './app.component';
+import { RioHelloPageComponent } from '../pages';
 
 @NgModule({
   imports: [
