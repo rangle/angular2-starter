@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { appRoutingProviders, routing } from '../routes/app.routes';
 import { RioAppComponent } from './app.component';
