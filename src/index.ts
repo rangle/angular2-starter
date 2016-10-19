@@ -6,7 +6,8 @@ import 'zone.js/dist/zone';
 
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { RioAppModule } from './app/app';
+
+import { RioAppModule } from './app/app.module';
 
 declare const __PRODUCTION__: boolean;
 declare const __TEST__: boolean;
