@@ -31,3 +31,6 @@ typings/
 
 *.js.map
 src/**/*.js
+
+# System artifacts
+.DS_Store
