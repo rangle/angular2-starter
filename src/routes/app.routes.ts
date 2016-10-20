@@ -4,7 +4,7 @@ import { RioHelloPageComponent } from '../pages';
 
 const SAMPLE_APP_ROUTES: Routes = [{
   path: '',
-  component: RioHelloPageComponent
+  component: RioHelloPageComponent,
 }];
 
 export const appRoutingProviders: any[] = [];

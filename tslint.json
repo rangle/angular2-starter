@@ -49,7 +49,13 @@
     "no-shadowed-variable": true,
     "no-string-literal": true,
     "no-switch-case-fall-through": true,
-    "trailing-comma": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "always",
+        "singleline": "never"
+      }
+    ],
     "no-trailing-whitespace": false,
     "no-unused-expression": true,
     "no-unused-variable": false,

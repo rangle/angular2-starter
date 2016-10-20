@@ -8,13 +8,13 @@ import { RioHelloPageComponent } from '../pages';
 @NgModule({
   imports: [
     BrowserModule,
-    routing
+    routing,
   ],
   declarations: [
     RioAppComponent,
-    RioHelloPageComponent
+    RioHelloPageComponent,
   ],
   providers: [appRoutingProviders],
-  bootstrap: [RioAppComponent]
+  bootstrap: [RioAppComponent],
 })
 export class RioAppModule {};
