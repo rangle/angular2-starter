@@ -6,7 +6,7 @@ const plugins = require('./webpack/plugins');
 
 module.exports = {
   entry: {
-    app: './src/index.ts',
+    app: './src/main.ts',
     // and vendor files separate
     vendor: [
       '@angular/core',

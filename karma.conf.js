@@ -39,7 +39,7 @@ module.exports = (config) => {
         'webpack',
         'sourcemap',
       ],
-      './src/**/!(*.test).(ts|js)': [
+      './src/**/!(*.spec).(ts|js)': [
         'sourcemap',
       ],
     },
@@ -94,10 +94,6 @@ function combinedLoaders() {
     case 'istanbulInstrumenter':
     case 'tslint':
       return aggregate;
-    case 'ts':
-      return aggregate.concat([ // force inline source maps
-        Object.assign(loaders[k],
-          { query: { babelOptions: { sourceMaps: 'both' } } })]);
     default:
       return aggregate.concat([loaders[k]]);
     }

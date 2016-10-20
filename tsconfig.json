@@ -15,11 +15,15 @@
   "awesomeTypescriptLoaderOptions": {
     "useBabel": true,
     "useCache": false,
-    "emitRequireType": false
+    "emitRequireType": false,
+    "useWebpackText": true
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
-  "types":["node", "jasmine"]
+  "types": [
+    "node",
+    "jasmine"
+  ]
 }
