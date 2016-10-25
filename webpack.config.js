@@ -58,6 +58,5 @@ module.exports = {
       loaders.woff2,
       loaders.ttf,
     ],
-    noParse: [/zone\.js\/dist\/.+/, /angular2\/bundles\/.+/],
   },
 };
