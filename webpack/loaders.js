@@ -19,13 +19,16 @@ exports.tslint = {
 
 exports.ts = {
   test: /\.ts$/,
-  loader: 'awesome-typescript-loader',
+  loaders: [
+    'awesome-typescript-loader',
+    'angular2-template-loader',
+  ],
   exclude: /node_modules/,
 };
 
 exports.istanbulInstrumenter = {
   enforce: 'post',
-  test: /^(.(?!\.test))*\.ts$/,
+  test: /^(.(?!\.spec))*\.ts$/,
   loader: 'istanbul-instrumenter-loader',
 };
 

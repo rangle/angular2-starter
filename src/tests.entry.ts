@@ -13,16 +13,14 @@ import 'zone.js/dist/jasmine-patch';
 
 import 'ts-helpers';
 
-
-
 const testContext = (require as {context?: Function})
   .context('./', true, /^(.(?!tests\.entry))*\.ts$/);
 
-testContext('./index.ts');
+testContext('./main.ts');
 
 testContext.keys().forEach(
   key => {
-    if (/\.test\.ts$/.test(key)) {
+    if (/\.spec\.ts$/.test(key)) {
       testContext(key);
     }
   });
