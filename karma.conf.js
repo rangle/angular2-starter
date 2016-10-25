@@ -19,7 +19,7 @@ module.exports = (config) => {
       'karma-sourcemap-loader',
       'karma-webpack',
       'karma-coverage',
-      'karma-remap-istanbul',
+      'karma-remap-coverage',
       'karma-spec-reporter',
       'karma-chrome-launcher',
     ],
@@ -67,25 +67,16 @@ module.exports = (config) => {
 
     reporters: ['spec']
       .concat(coverage)
-      .concat(coverage.length > 0 ? ['karma-remap-istanbul'] : []),
+      .concat(coverage.length > 0 ? ['remap-coverage'] : []),
 
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {
-      reporters: [
-        { type: 'json' },
-      ],
-      dir: './coverage/',
-      subdir: (browser) => {
-        return browser.toLowerCase().split(/[ /-]/)[0]; // returns 'chrome'
-      },
+      type: 'in-memory',
     },
 
-    remapIstanbulReporter: {
-      src: './coverage/chrome/coverage-final.json',
-      reports: {
-        html: 'coverage',
-      },
-      timeoutNotCreated: 5000,
+    remapCoverageReporter: {
+      html: './coverage',
+      json: './coverage/coverage.json',
     },
 
     port: 9999,
