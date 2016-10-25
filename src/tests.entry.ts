@@ -15,7 +15,7 @@ import 'ts-helpers';
 
 
 
-const testContext = (<{ context?: Function }>require)
+const testContext = (require as {context?: Function})
   .context('./', true, /^(.(?!tests\.entry))*\.ts$/);
 
 testContext('./index.ts');
