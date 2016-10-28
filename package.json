@@ -106,7 +106,7 @@
     "typescript": "^2.0.3",
     "webpack": "2.1.0-beta.25",
     "webpack-dev-server": "2.1.0-beta.9",
-    "webpack-hot-middleware": "^2.13.0",
+    "webpack-hot-middleware": "^2.13.1",
     "zone.js": "^0.6.26"
   }
 }
