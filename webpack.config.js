@@ -24,10 +24,10 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash].js',
+    filename: '[name].[chunkhash].js',
     publicPath: '/',
-    sourceMapFilename: '[name].[hash].js.map',
-    chunkFilename: '[id].chunk.js',
+    sourceMapFilename: '[name].[chunkhash].js.map',
+    chunkFilename: '[name].chunk.[chunkhash].js',
   },
 
   devtool: process.env.NODE_ENV === 'production' ?
