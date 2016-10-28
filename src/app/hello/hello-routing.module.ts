@@ -12,5 +12,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   providers: [],
+  exports: [
+    RouterModule,
+  ],
 })
 export class HelloRoutingModule { }
