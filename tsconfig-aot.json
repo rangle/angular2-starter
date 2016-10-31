@@ -9,8 +9,7 @@
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "removeComments": false,
-    "sourceMap": false,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "noEmitHelpers": true
   },
   "awesomeTypescriptLoaderOptions": {

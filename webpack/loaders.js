@@ -19,11 +19,15 @@ exports.tslint = {
 
 exports.ts = {
   test: /\.ts$/,
+  loader: '@ngtools/webpack',
+};
+
+exports.ts_JiT = {
+  test: /\.ts$/,
   loaders: [
     'awesome-typescript-loader',
     'angular2-template-loader',
   ],
-  exclude: /node_modules/,
 };
 
 exports.istanbulInstrumenter = {

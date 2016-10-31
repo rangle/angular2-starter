@@ -3,22 +3,19 @@
 const path = require('path');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
-
+const ENV = process.env.npm_lifecycle_event;
+const JiT = ENV === 'build:jit';
+if (JiT) {
+  console.log('AoT: false');
+}
 module.exports = {
   entry: {
     app: './src/main.ts',
     // and vendor files separate
     vendor: [
       '@angular/core',
-      '@angular/compiler',
-      '@angular/common',
-      '@angular/http',
-      '@angular/platform-browser',
-      '@angular/platform-browser-dynamic',
       '@angular/router',
-      'core-js',
-      'rxjs',
-      'immutable',
+      '@angular/platform-browser',
     ],
   },
 
@@ -49,7 +46,7 @@ module.exports = {
     rules: [
       loaders.angular,
       loaders.tslint,
-      loaders.ts,
+      loaders.ts_JiT,
       loaders.html,
       loaders.css,
       loaders.svg,

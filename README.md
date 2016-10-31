@@ -31,9 +31,15 @@ Open `http://localhost:8080` in your browser.
 $ npm install
 $ npm start
 ```
-
+or
+```bash
+$ npm run build
+$ npm start
+```
 This runs a production-ready express server that serves up a bundled and
 minified version of the client.
+
+Note: AoT is enabled by default. To disable AoT, use `npm run build:jit`.
 
 Open `http://localhost:8080` in your browser.
 
