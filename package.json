@@ -53,7 +53,7 @@
     "@types/core-js": "^0.9.34",
     "@types/jasmine": "^2.5.35",
     "@types/node": "^6.0.45",
-    "angular2-template-loader": "^0.5.0",
+    "angular2-template-loader": "^0.6.0",
     "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^2.2.4",
     "babel-core": "^6.17.0",
