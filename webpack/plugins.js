@@ -21,6 +21,7 @@ const basePlugins = [
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
   }),
   new HtmlWebpackPlugin({
+    chunksSortMode: 'dependency',
     template: './src/index.html',
     inject: 'body',
     minify: false,
