@@ -4,8 +4,16 @@ machine:
 
 dependencies:
   pre:
-    # Clean out node-modules to prevent issues with circle-ci's caching.
-    - rm -rf node_modules
+    - npm install -g yarn@0.16.1
+  override:
+    - yarn install
+
+test:
+  pre:
+    - yarn run clean
+    - yarn run pretest
+  override:
+    - yarn test
 
 general:
   artifacts:
