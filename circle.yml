@@ -9,9 +9,6 @@ dependencies:
     - yarn install
 
 test:
-  pre:
-    - yarn run clean
-    - yarn run pretest
   override:
     - yarn test
 

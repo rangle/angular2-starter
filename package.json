@@ -19,7 +19,7 @@
     "cover": "istanbul report text text-summary",
     "dev": "cross-env NODE_ENV=development webpack-dev-server -d --inline --hot --progress --no-info",
     "lint": "npm run lint-ts && npm run lint-js && npm run lint-css",
-    "lint-ts": "tslint './src/**/*.ts' -e './src/**/*.ngfactory.ts' -e './src/**/*.css.ts' -e './src/**/*.css.shim.ts'",
+    "lint-ts": "tslint './src/**/*.ts'",
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "lint-css": "stylelint './src/**/*.css'",
     "postinstall": "npm run build",
