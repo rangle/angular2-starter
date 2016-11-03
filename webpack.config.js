@@ -21,10 +21,13 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash]-[id].js',
+    filename: process.env.NODE_ENV === 'production' ?
+      '[name].[chunkhash].js' : '[name].js',
     publicPath: '/',
-    sourceMapFilename: '[name].[hash]-[id].js.map',
-    chunkFilename: '[name].chunk.[hash]-[id].js',
+    sourceMapFilename: process.env.NODE_ENV === 'production' ?
+      '[name].[chunkhash].js.map' : '[name].js.map',
+    chunkFilename: process.env.NODE_ENV === 'production' ?
+      '[name].chunk.[chunkhash].js' : '[name].js',
   },
 
   devtool: process.env.NODE_ENV === 'production' ?
