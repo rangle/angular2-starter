@@ -13,9 +13,7 @@ module.exports = {
     app: './src/main.ts',
     // and vendor files separate
     vendor: [
-      '@angular/core',
-      '@angular/router',
-      '@angular/platform-browser',
+      './src/vendor.ts',
     ],
   },
 
