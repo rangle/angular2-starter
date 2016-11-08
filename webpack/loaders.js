@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 exports.angular = { // ships in ES6 format now
   test: /\.js$/,
   loader: 'babel-loader',
@@ -42,9 +44,17 @@ exports.html = {
   exclude: /node_modules/,
 };
 
-exports.css = {
+exports.localCss = {
   test: /\.css$/,
+  include: path.resolve(process.cwd(), 'src', 'app'),
   loader: 'to-string!css?-minimize!postcss',
+  exclude: /node_modules/,
+};
+
+exports.globalCss = {
+  test: /\.css$/,
+  include: path.resolve(process.cwd(), 'src', 'styles'),
+  loader: 'style!css?-minimize!postcss',
   exclude: /node_modules/,
 };
 
