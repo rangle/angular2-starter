@@ -15,7 +15,7 @@ exports.angular = { // ships in ES6 format now
 exports.tslint = {
   enforce: 'pre',
   test: /\.ts$/,
-  loader: 'tslint',
+  loader: 'tslint-loader',
   exclude: /node_modules/,
 };
 
@@ -40,21 +40,21 @@ exports.istanbulInstrumenter = {
 
 exports.html = {
   test: /\.html$/,
-  loader: 'raw',
+  loader: 'raw-loader',
   exclude: /node_modules/,
 };
 
 exports.localCss = {
   test: /\.css$/,
   include: path.resolve(process.cwd(), 'src', 'app'),
-  loader: 'to-string!css?-minimize!postcss',
+  loader: 'to-string-loader!css-loader?-minimize!postcss-loader',
   exclude: /node_modules/,
 };
 
 exports.globalCss = {
   test: /\.css$/,
   include: path.resolve(process.cwd(), 'src', 'styles'),
-  loader: 'style!css?-minimize!postcss',
+  loader: 'style-loader!css-loader?-minimize!postcss-loader',
   exclude: /node_modules/,
 };
 
@@ -67,7 +67,7 @@ exports.ttf = makeFileLoader(/\.ttf$/);
 function makeFileLoader(pattern) {
   return {
     test: pattern,
-    loader: 'file',
+    loader: 'file-loader',
     exclude: /node_modules/,
   };
 }
