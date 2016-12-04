@@ -21,7 +21,7 @@ webpackConfig.module.rules = [
 webpackConfig.plugins = webpackConfig.plugins.concat([
   new AotPlugin({
     tsConfigPath: './tsconfig-aot.json',
-    entryModule: './src/app/app.module#AppModule',
+    entryModule: 'src/app/app.module#AppModule',
   }),
 ]);
 if (!JiT) {
