@@ -9,6 +9,7 @@ module.exports = (config) => {
   const coverage = config.singleRun ? ['coverage'] : [];
 
   config.set({
+    mime: { 'text/x-typescript': ['ts', 'tsx'] },
     frameworks: [
       'jasmine',
     ],
@@ -72,6 +73,20 @@ module.exports = (config) => {
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {
       type: 'in-memory',
+      check: {
+        global: {
+          statements: 50,
+          branches: 50,
+          functions: 50,
+          lines: 50,
+        },
+        each: {
+          statements: 50,
+          branches: 50,
+          functions: 50,
+          lines: 50,
+        },
+      },
     },
 
     remapCoverageReporter: {
@@ -93,6 +108,7 @@ function combinedLoaders() {
     switch (k) {
     case 'istanbulInstrumenter':
     case 'tslint':
+    case 'ts':
       return aggregate;
     default:
       return aggregate.concat([loaders[k]]);
