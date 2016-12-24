@@ -21,7 +21,7 @@ import {
 
 TestBed.initTestEnvironment(
   BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
+  platformBrowserDynamicTesting(),
 );
 
 const testContext = (require as {context?: Function})
