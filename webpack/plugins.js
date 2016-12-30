@@ -56,6 +56,7 @@ const prodPlugins = [
     ],
   }),
   new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
     mangle: {
       keep_fnames: true,
     },
