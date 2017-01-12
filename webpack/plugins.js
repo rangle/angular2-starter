@@ -6,6 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ForkCheckerPlugin = require(
   'awesome-typescript-loader').ForkCheckerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const postcss = require('./postcss');
 
@@ -26,6 +27,7 @@ const basePlugins = [
     inject: 'body',
     minify: false,
   }),
+  new ExtractTextPlugin('styles.[contenthash].css'),
   new webpack.NoErrorsPlugin(),
   new CopyWebpackPlugin([
     { from: 'src/assets', to: 'assets' },

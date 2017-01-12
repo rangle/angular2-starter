@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.angular = { // ships in ES6 format now
   test: /\.js$/,
@@ -54,7 +55,10 @@ exports.localCss = {
 exports.globalCss = {
   test: /\.css$/,
   include: path.resolve(process.cwd(), 'src', 'styles'),
-  loader: 'style-loader!css-loader?-minimize!postcss-loader',
+  loader: ExtractTextPlugin.extract({
+    fallbackLoader: 'style-loader',
+    loader: 'css-loader?-minimize!postcss-loader',
+  }),
   exclude: /node_modules/,
 };
 
