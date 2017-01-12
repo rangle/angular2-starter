@@ -3,6 +3,8 @@ const webpackConfig = require('./webpack.config.js');
 const loaders = require('./webpack/loaders');
 const AotPlugin =  require('@ngtools/webpack').AotPlugin;
 
+const path = require('path');
+
 const ENV = process.env.npm_lifecycle_event;
 const JiT = ENV === 'build:jit';
 webpackConfig.module.rules = [
@@ -21,7 +23,8 @@ webpackConfig.module.rules = [
 webpackConfig.plugins = webpackConfig.plugins.concat([
   new AotPlugin({
     tsConfigPath: './tsconfig-aot.json',
-    entryModule: 'src/app/app.module#AppModule',
+    entryModule: path.resolve(process.cwd(), 'src/app/app.module#AppModule'),
+    skipCodeGeneration: true,
   }),
 ]);
 if (!JiT) {
