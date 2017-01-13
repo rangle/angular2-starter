@@ -42,7 +42,6 @@ exports.istanbulInstrumenter = {
 exports.html = {
   test: /\.html$/,
   loader: 'raw-loader',
-  exclude: /node_modules/,
 };
 
 exports.localCss = {

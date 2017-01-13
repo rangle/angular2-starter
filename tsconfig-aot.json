@@ -10,17 +10,17 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "rootDir": "."
   },
-  "awesomeTypescriptLoaderOptions": {
-    "useBabel": true,
-    "useCache": false,
-    "emitRequireType": false,
-    "useWebpackText": true
+  "angularCompilerOptions": {
+    "entryModule": "app/app.module#AppModule"
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "src/tests.entry.ts",
+    "**/*.spec.ts"
   ],
   "types":[
     "node",
