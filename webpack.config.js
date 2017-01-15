@@ -4,10 +4,13 @@ const path = require('path');
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 const ENV = process.env.npm_lifecycle_event;
+const isProduction = process.env.NODE_ENV === 'production';
 const JiT = ENV === 'build:jit';
+
 if (JiT) {
   console.log('AoT: false');
 }
+
 module.exports = {
   entry: {
     app: './src/main.ts',
@@ -19,16 +22,16 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: process.env.NODE_ENV === 'production' ?
+    filename: isProduction ?
       '[name].[chunkhash].js' : '[name].js',
     publicPath: '/',
-    sourceMapFilename: process.env.NODE_ENV === 'production' ?
+    sourceMapFilename: isProduction ?
       '[name].[chunkhash].js.map' : '[name].js.map',
-    chunkFilename: process.env.NODE_ENV === 'production' ?
+    chunkFilename: isProduction ?
       '[name].chunk.[chunkhash].js' : '[name].js',
   },
 
-  devtool: process.env.NODE_ENV === 'production' ?
+  devtool: isProduction ?
     'source-map' :
     'inline-source-map',
 
