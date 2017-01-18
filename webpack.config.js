@@ -8,10 +8,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
   entry: {
     app: './src/main.ts',
-    // and vendor files separate
-    vendor: [
-      './src/vendor.ts',
-    ],
+    vendor: './src/vendor.ts',
   },
 
   output: {

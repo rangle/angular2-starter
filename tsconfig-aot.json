@@ -11,7 +11,9 @@
     "removeComments": false,
     "sourceMap": true,
     "noEmitHelpers": true,
-    "rootDir": "."
+    "rootDir": ".",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "angularCompilerOptions": {
     "entryModule": "app/app.module#AppModule"
@@ -22,7 +24,7 @@
     "src/tests.entry.ts",
     "**/*.spec.ts"
   ],
-  "types":[
+  "types": [
     "node",
     "jasmine",
     "core-js"
