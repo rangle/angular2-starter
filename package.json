@@ -15,6 +15,8 @@
     "prebuild:jit": "npm run clean",
     "build": "cross-env NODE_ENV=production webpack --config webpack-aot.config.js",
     "build:jit": "cross-env NODE_ENV=production webpack",
+    "profile-build": "npm run clean && cross-env NODE_ENV=production webpack --config webpack-aot.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+    "profile-build:jit": "npm run clean && cross-env NODE_ENV=production webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json",
     "clean": "rimraf dist/",
     "cover": "istanbul report text text-summary",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --debug --inline --hot --progress --no-info",
@@ -110,6 +112,7 @@
     "tslint-loader": "^3.3.0",
     "typescript": "2.0.10",
     "webpack": "2.1.0-beta.26",
+    "webpack-bundle-analyzer": "^2.2.1",
     "webpack-dev-server": "2.1.0-beta.9",
     "webpack-hot-middleware": "^2.13.0",
     "zone.js": "^0.7.4"

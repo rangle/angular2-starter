@@ -34,3 +34,6 @@ src/**/*.js
 
 # System artifacts
 .DS_Store
+
+# Webpack bundle size stats
+stats.json

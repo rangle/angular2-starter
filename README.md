@@ -62,6 +62,25 @@ $ npm run test:watch
 $ npm run cover
 ```
 
+## Webpack
+
+Configurations:
+- For dev & jit: `webpack.config.js`
+- For production & AoT: `webpack-aot.config.js`
+
+The webpack directory consists of:
+- `loaders.js`: definitions for all the loaders used in this project
+- `plugins.js`: definitions for all the plugins used in this project. These are grouped based on `process.env`.
+- `postcss.js`: configuration for the postcss plugin.
+
+### Bundle Profiling
+
+If you want to analyze the contents and size of the production bundles you can run one of the following commands:
+- `npm run profile-build` for AoT builds
+- `npm run profile-build:jit` for JiT builds
+
+These commands produce a `stats.json` manifest in the project root and also opens a web page using `webpack-bundle-analyzer` so that you can parse it visually.
+
 #### Connecting to remote APIs
 
 Both the devmode and production servers provide a way to proxy requests to
