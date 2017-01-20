@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   pre:
-    - npm install -g yarn@0.16.1
+    - npm install -g yarn@0.19.1
   override:
     - yarn install
 
@@ -14,4 +14,4 @@ test:
 
 general:
   artifacts:
-    - "./coverage/lcov-report/"
+    - "./coverage/"
