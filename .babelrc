@@ -1,4 +1,15 @@
 {
-  "presets": ["es2015"],
-  "sourceMaps": "both"
+  "presets": [
+    [
+      "latest", {
+        "es2015": { "modules": false }
+      }
+    ]
+  ],
+  "sourceMaps": "both",
+  "env": {
+    "karma": {
+      "presets": [ "latest" ]
+    }
+  }
 }
