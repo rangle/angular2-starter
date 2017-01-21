@@ -65,9 +65,7 @@ const devPlugins = [
 
 const prodPlugins = [
   new webpack.optimize.CommonsChunkPlugin({
-    name: [
-      'vendor',
-    ],
+    name: 'vendor',
   }),
   new webpack.optimize.UglifyJsPlugin({
     sourceMap: true,
