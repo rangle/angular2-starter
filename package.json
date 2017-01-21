@@ -25,7 +25,7 @@
     "lint-js": "eslint '**/*.js' --ignore-path .gitignore",
     "lint-css": "stylelint './src/**/*.css'",
     "postinstall": "npm run build",
-    "start": "cross-env NODE_ENV=production http-server ./dist",
+    "start": "cross-env NODE_ENV=production node server",
     "pretest": "rimraf coverage/ & npm run lint",
     "test": "BABEL_ENV=karma karma start --singleRun true",
     "posttest": "npm run cover",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "cross-env": "^3.1.3",
-    "http-server": "^0.9.0"
+    "superstatic": "^4.0.3"
   },
   "devDependencies": {
     "@angular/common": "2.4.3",
