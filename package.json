@@ -97,7 +97,7 @@
     "rxjs": "5.0.1",
     "style-loader": "^0.13.1",
     "stylelint": "^7.7.0",
-    "stylelint-webpack-plugin": "^0.4.0",
+    "stylelint-webpack-plugin": "^0.5.1",
     "tachyons": "^4.5.5",
     "to-string-loader": "^1.1.5",
     "ts-helpers": "^1.1.2",
