@@ -89,7 +89,7 @@
     "karma-spec-reporter": "^0.0.26",
     "karma-webpack": "^1.8.0",
     "postcss-cssnext": "^2.8.0",
-    "postcss-import": "8.0.2",
+    "postcss-import": "9.1.0",
     "postcss-loader": "^1.0.0",
     "ramda": "^0.22.1",
     "raw-loader": "^0.5.1",
