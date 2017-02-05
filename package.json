@@ -61,7 +61,7 @@
     "angular2-router-loader": "^0.3.4",
     "angular2-template-loader": "^0.6.0",
     "autoprefixer": "^6.5.1",
-    "awesome-typescript-loader": "^2.2.4",
+    "awesome-typescript-loader": "^3.0.0",
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
     "babel-polyfill": "^6.16.0",
