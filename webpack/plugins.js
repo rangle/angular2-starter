@@ -4,8 +4,6 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ForkCheckerPlugin = require(
-  'awesome-typescript-loader').ForkCheckerPlugin;
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const postcss = require('./postcss');
@@ -52,7 +50,6 @@ const basePlugins = [
   }),
   new webpack.ContextReplacementPlugin(
     /angular\/core\/(esm\/src|src)\/linker/, __dirname),
-  new ForkCheckerPlugin(),
 ].concat(sourceMap);
 
 const devPlugins = [

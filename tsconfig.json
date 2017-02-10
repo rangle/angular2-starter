@@ -13,22 +13,15 @@
     "inlineSourceMap": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
-  },
-  "awesomeTypescriptLoaderOptions": {
-    "useBabel": true,
-    "useCache": false,
-    "emitRequireType": false,
-    "useWebpackText": true,
-    "forkChecker": true
+    "noUnusedParameters": true,
+    "types":[
+      "node",
+      "jasmine",
+      "core-js"
+    ]
   },
   "exclude": [
     "node_modules",
     "dist"
-  ],
-  "types":[
-    "node",
-    "jasmine",
-    "core-js"
   ]
 }

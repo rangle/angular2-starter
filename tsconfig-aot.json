@@ -13,7 +13,12 @@
     "noEmitHelpers": true,
     "rootDir": ".",
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "types": [
+      "node",
+      "jasmine",
+      "core-js"
+    ]
   },
   "angularCompilerOptions": {
     "entryModule": "app/app.module#AppModule"
@@ -23,10 +28,5 @@
     "dist",
     "src/tests.entry.ts",
     "**/*.spec.ts"
-  ],
-  "types": [
-    "node",
-    "jasmine",
-    "core-js"
   ]
 }

@@ -52,11 +52,15 @@ module.exports = (config) => {
         extensions: ['.webpack.js', '.web.js', '.ts', '.js'],
       },
       module: {
-        rules:
-          combinedLoaders().concat(
-            config.singleRun
-              ? [ loaders.istanbulInstrumenter ]
-              : [ ]),
+        rules: [
+          {
+            test: /\.ts$/,
+            loader: 'awesome-typescript-loader?module=commonjs',
+            exclude: /node_modules/,
+          },
+          loaders.html,
+          { test: /\.(css|svg|eot|woff|woff2|ttf)/, use: 'null-loader' },
+        ].concat(config.singleRun ? [loaders.istanbulInstrumenter] : []),
       },
       stats: { colors: true, reasons: true },
       plugins,
@@ -102,17 +106,3 @@ module.exports = (config) => {
     captureTimeout: 6000,
   });
 };
-
-function combinedLoaders() {
-  return Object.keys(loaders).reduce(function reduce(aggregate, k) {
-    switch (k) {
-    case 'istanbulInstrumenter':
-    case 'tslint':
-    case 'ts':
-      return aggregate;
-    default:
-      return aggregate.concat([loaders[k]]);
-    }
-  },
-  []);
-}

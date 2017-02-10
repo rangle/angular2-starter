@@ -36,7 +36,7 @@ exports.ts_JiT = {
 
 exports.istanbulInstrumenter = {
   enforce: 'post',
-  test: /^(.(?!\.spec))*\.ts$/,
+  test: /^(.(?!\.(spec|entry)))*\.ts$/,
   loader: 'istanbul-instrumenter-loader',
 };
 
