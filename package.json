@@ -91,7 +91,7 @@
     "ramda": "^0.22.1",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
-    "rxjs": "5.0.1",
+    "rxjs": "5.1.1",
     "style-loader": "^0.13.1",
     "stylelint": "^7.7.0",
     "stylelint-webpack-plugin": "^0.5.1",
