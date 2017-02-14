@@ -5,24 +5,26 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.angular = { // ships in ES6 format now
   test: /\.js$/,
-  loader: 'babel-loader',
+  use: [
+    {
+      loader: 'babel-loader',
+      options: { compact: false },
+    },
+  ],
   include: /angular/,
   exclude: /node_modules/,
-  query: {
-    compact: false,
-  },
 };
 
 exports.tslint = {
   enforce: 'pre',
   test: /\.ts$/,
-  loader: 'tslint-loader',
+  use: 'tslint-loader',
   exclude: /node_modules/,
 };
 
 exports.ts = {
   test: /\.ts$/,
-  loader: '@ngtools/webpack',
+  use: '@ngtools/webpack',
 };
 
 exports.ts_JiT = {
@@ -42,22 +44,29 @@ exports.istanbulInstrumenter = {
 
 exports.html = {
   test: /\.html$/,
-  loader: 'raw-loader',
+  use: 'raw-loader',
 };
 
 exports.localCss = {
   test: /\.css$/,
   include: path.resolve(process.cwd(), 'src', 'app'),
-  loader: 'to-string-loader!css-loader?-minimize!postcss-loader',
+  use: [
+    'to-string-loader',
+    'css-loader?-minimize',
+    'postcss-loader',
+  ],
   exclude: /node_modules/,
 };
 
 exports.globalCss = {
   test: /\.css$/,
   include: path.resolve(process.cwd(), 'src', 'styles'),
-  loader: ExtractTextPlugin.extract({
-    fallbackLoader: 'style-loader',
-    loader: 'css-loader?-minimize!postcss-loader',
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: [
+      'css-loader?-minimize',
+      'postcss-loader',
+    ],
   }),
   exclude: /node_modules/,
 };
@@ -71,7 +80,7 @@ exports.ttf = makeFileLoader(/\.ttf$/);
 function makeFileLoader(pattern) {
   return {
     test: pattern,
-    loader: 'file-loader',
+    use: 'file-loader',
     exclude: /node_modules/,
   };
 }

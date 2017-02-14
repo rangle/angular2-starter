@@ -38,7 +38,7 @@ const basePlugins = [
     },
   }),
   new ExtractTextPlugin('styles.[contenthash].css'),
-  new webpack.NoErrorsPlugin(),
+  new webpack.NoEmitOnErrorsPlugin(),
   new CopyWebpackPlugin([
     { from: 'src/assets', to: 'assets' },
   ]),
