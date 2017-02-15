@@ -5,6 +5,7 @@ process.env.TEST = true;
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 
+module.exports = (config) => {
   config.set({
     mime: { 'text/x-typescript': ['ts', 'tsx'] },
     frameworks: [
@@ -101,4 +102,4 @@ const plugins = require('./webpack/plugins');
     browsers: ['Chrome'], // Alternatively: 'PhantomJS'
     captureTimeout: 6000,
   });
-}
+};
