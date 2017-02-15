@@ -5,9 +5,6 @@ process.env.TEST = true;
 const loaders = require('./webpack/loaders');
 const plugins = require('./webpack/plugins');
 
-module.exports = (config) => {
-  const coverage = config.singleRun ? ['coverage'] : [];
-
   config.set({
     mime: { 'text/x-typescript': ['ts', 'tsx'] },
     frameworks: [
@@ -71,8 +68,7 @@ module.exports = (config) => {
     },
 
     reporters: ['spec']
-      .concat(coverage)
-      .concat(coverage.length > 0 ? ['remap-coverage'] : []),
+      .concat(config.singleRun ? ['coverage', 'remap-coverage'] : []),
 
     // only output json report to be remapped by remap-istanbul
     coverageReporter: {

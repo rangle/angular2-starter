@@ -47,20 +47,9 @@ exports.html = {
   use: 'raw-loader',
 };
 
-exports.localCss = {
+exports.vendorCss = {
   test: /\.css$/,
-  include: path.resolve(process.cwd(), 'src', 'app'),
-  use: [
-    'to-string-loader',
-    'css-loader?-minimize',
-    'postcss-loader',
-  ],
-  exclude: /node_modules/,
-};
-
-exports.globalCss = {
-  test: /\.css$/,
-  include: path.resolve(process.cwd(), 'src', 'styles'),
+  include: /node_modules/,
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
@@ -68,19 +57,18 @@ exports.globalCss = {
       'postcss-loader',
     ],
   }),
-  exclude: /node_modules/,
 };
 
-exports.svg = makeFileLoader(/\.svg$/);
-exports.eot = makeFileLoader(/\.eot$/);
-exports.woff = makeFileLoader(/\.woff$/);
-exports.woff2 = makeFileLoader(/\.woff2$/);
-exports.ttf = makeFileLoader(/\.ttf$/);
+exports.appCss = {
+  test: /\.css$/,
+  include: /src/,
+  use: [
+    'raw-loader',
+    'postcss-loader',
+  ],
+};
 
-function makeFileLoader(pattern) {
-  return {
-    test: pattern,
-    use: 'file-loader',
-    exclude: /node_modules/,
-  };
-}
+exports.file = {
+  test: /\.(png|jpe?g|gif|svg|ico|woff|woff2|ttf|eot)(\?.*)?$/,
+  use: 'file-loader',
+};

@@ -8,14 +8,9 @@ webpackConfig.module.rules = [
   loaders.tslint,
   loaders.ts,
   loaders.html,
-  { test: /\.css$/, use: 'raw-loader', include: /node_modules/ },
-  loaders.globalCss,
-  loaders.localCss,
-  loaders.svg,
-  loaders.eot,
-  loaders.woff,
-  loaders.woff2,
-  loaders.ttf,
+  loaders.vendorCss,
+  loaders.appCss,
+  loaders.file,
 ];
 
 webpackConfig.plugins = webpackConfig.plugins.concat([
