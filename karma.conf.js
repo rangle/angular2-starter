@@ -101,4 +101,4 @@ const plugins = require('./webpack/plugins');
     browsers: ['Chrome'], // Alternatively: 'PhantomJS'
     captureTimeout: 6000,
   });
-};
+}
