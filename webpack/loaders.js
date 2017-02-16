@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.angular = { // ships in ES6 format now
@@ -49,7 +48,10 @@ exports.html = {
 
 exports.vendorCss = {
   test: /\.css$/,
-  include: /node_modules/,
+  include: [
+    /node_modules/,
+    /src\/styles/,
+  ],
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
@@ -61,7 +63,7 @@ exports.vendorCss = {
 
 exports.appCss = {
   test: /\.css$/,
-  include: /src/,
+  include: /src\/app/,
   use: [
     'raw-loader',
     'postcss-loader',
