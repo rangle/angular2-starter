@@ -27,9 +27,9 @@
     "postinstall": "npm run build",
     "start": "cross-env NODE_ENV=production node server",
     "pretest": "rimraf coverage/ & npm run lint",
-    "test": "karma start --singleRun true",
+    "test": "karma start --single-run",
     "posttest": "npm run cover",
-    "test:watch": "karma start --singleRun false"
+    "test:watch": "karma start --auto-run"
   },
   "repository": {
     "type": "git",

@@ -98,7 +98,8 @@ module.exports = (config) => {
     port: 9999,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
+    singleRun: false,
     browsers: ['Chrome'], // Alternatively: 'PhantomJS'
     captureTimeout: 6000,
   });
