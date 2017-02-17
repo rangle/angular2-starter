@@ -46,7 +46,18 @@ exports.html = {
   use: 'raw-loader',
 };
 
-exports.vendorCss = {
+exports.componentCss = {
+  test: /\.css$/,
+  include: /src\/app/,
+  use: [
+    'to-string-loader',
+    'css-loader?-minimize',
+    'postcss-loader',
+  ],
+  exclude: /node_modules/,
+};
+
+exports.globalCss = {
   test: /\.css$/,
   include: [
     /node_modules/,
@@ -55,19 +66,10 @@ exports.vendorCss = {
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
-      'css-loader?-minimize',
+      'css-loader',
       'postcss-loader',
     ],
   }),
-};
-
-exports.appCss = {
-  test: /\.css$/,
-  include: /src\/app/,
-  use: [
-    'raw-loader',
-    'postcss-loader',
-  ],
 };
 
 exports.file = {

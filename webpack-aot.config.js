@@ -8,8 +8,8 @@ webpackConfig.module.rules = [
   loaders.tslint,
   loaders.ts,
   loaders.html,
-  loaders.vendorCss,
-  loaders.appCss,
+  loaders.globalCss,
+  loaders.componentCss,
   loaders.file,
 ];
 
