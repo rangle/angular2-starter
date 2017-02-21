@@ -8,6 +8,7 @@ webpackConfig.module.rules = [
   loaders.tslint,
   loaders.ts,
   loaders.html,
+  { test: /\.css$/, use: 'raw-loader', include: /node_modules/ },
   loaders.globalCss,
   loaders.componentCss,
   loaders.file,
