@@ -39,7 +39,6 @@ module.exports = {
 
   module: {
     rules: [
-      loaders.angular,
       loaders.tslint,
       loaders.ts_JiT,
       loaders.html,

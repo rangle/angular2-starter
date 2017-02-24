@@ -20,9 +20,6 @@
       "core-js"
     ]
   },
-  "angularCompilerOptions": {
-    "entryModule": "app/app.module#AppModule"
-  },
   "exclude": [
     "node_modules",
     "dist",

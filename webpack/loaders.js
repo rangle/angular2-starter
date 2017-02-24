@@ -3,18 +3,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-exports.angular = { // ships in ES6 format now
-  test: /\.js$/,
-  use: [
-    {
-      loader: 'babel-loader',
-      options: { compact: false },
-    },
-  ],
-  include: /angular/,
-  exclude: /node_modules/,
-};
-
 exports.tslint = {
   enforce: 'pre',
   test: /\.ts$/,
