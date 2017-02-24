@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.tslint = {
@@ -35,9 +34,9 @@ exports.html = {
   use: 'raw-loader',
 };
 
-exports.localCss = {
+exports.componentCss = {
   test: /\.css$/,
-  include: path.resolve(process.cwd(), 'src', 'app'),
+  include: /src\/app/,
   use: [
     'to-string-loader',
     'css-loader?-minimize',
@@ -48,27 +47,20 @@ exports.localCss = {
 
 exports.globalCss = {
   test: /\.css$/,
-  include: path.resolve(process.cwd(), 'src', 'styles'),
+  include: [
+    /node_modules/,
+    /src\/styles/,
+  ],
   use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use: [
-      'css-loader?-minimize',
+      'css-loader',
       'postcss-loader',
     ],
   }),
-  exclude: /node_modules/,
 };
 
-exports.svg = makeFileLoader(/\.svg$/);
-exports.eot = makeFileLoader(/\.eot$/);
-exports.woff = makeFileLoader(/\.woff$/);
-exports.woff2 = makeFileLoader(/\.woff2$/);
-exports.ttf = makeFileLoader(/\.ttf$/);
-
-function makeFileLoader(pattern) {
-  return {
-    test: pattern,
-    use: 'file-loader',
-    exclude: /node_modules/,
-  };
-}
+exports.file = {
+  test: /\.(png|jpe?g|gif|svg|ico|woff|woff2|ttf|eot)(\?.*)?$/,
+  use: 'file-loader',
+};
