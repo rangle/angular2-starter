@@ -5,7 +5,6 @@ const loaders = require('./webpack/loaders');
 const AotPlugin =  require('@ngtools/webpack').AotPlugin;
 
 webpackConfig.module.rules = [
-  loaders.tslint,
   loaders.ts,
   loaders.html,
   { test: /\.css$/, use: 'raw-loader', include: /node_modules/ },
