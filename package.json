@@ -62,7 +62,7 @@
     "angular2-template-loader": "^0.6.0",
     "autoprefixer": "^6.5.1",
     "awesome-typescript-loader": "^3.0.0-beta.9",
-    "codelyzer": "^2.0.0-beta.4",
+    "codelyzer": "^2.1.0",
     "copy-webpack-plugin": "^4.0.0",
     "core-js": "^2.4.1",
     "css-loader": "^0.26.1",
