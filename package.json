@@ -39,7 +39,7 @@
     "url": "https://github.com/rangle/angular2-redux-starter/issues"
   },
   "dependencies": {
-    "cross-env": "^3.1.3",
+    "cross-env": "^5.0.0",
     "superstatic": "^4.0.3"
   },
   "devDependencies": {
