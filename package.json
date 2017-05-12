@@ -86,7 +86,7 @@
     "karma-webpack": "^1.8.0",
     "null-loader": "^0.1.1",
     "postcss-cssnext": "^2.8.0",
-    "postcss-import": "9.1.0",
+    "postcss-import": "10.0.0",
     "postcss-loader": "^1.0.0",
     "ramda": "^0.22.1",
     "raw-loader": "^0.5.1",
